@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ing. Radek Doležel – Design Engineer &amp; PhD Researcher</title>
+  <meta name="description" content="Ing. Radek Doležel – design / project engineer at Škoda Transportation and PhD student at the Department of Robotics, VSB – Technical University of Ostrava.">
+  <meta property="og:title" content="Ing. Radek Doležel – CV">
+  <meta property="og:description" content="Design / project engineer, PhD student in robotics. CAD/CAE, embedded systems, software.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://raduas.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b2d4b'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23c9a46a' text-anchor='middle'%3ERD%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1b2d4b;
+      --navy-2: #24395d;
+      --gold: #c9a46a;
+      --bg: #f4f6fa;
+      --card: #ffffff;
+      --text: #1f2633;
+      --muted: #5d6779;
+      --line: #e1e6ee;
+      --tag: #eef2f8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--navy-2); text-underline-offset: 3px; }
+    a:hover { color: var(--gold); }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--navy);
+      color: #fff;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+      background: linear-gradient(90deg, var(--gold), #8a7350 60%, var(--navy-2));
+    }
+    .header-inner {
+      max-width: 1080px; margin: 0 auto;
+      padding: 56px 28px 52px;
+      display: flex; flex-wrap: wrap; gap: 28px 48px;
+      align-items: flex-end; justify-content: space-between;
+    }
+    .title-pre {
+      font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin: 0 0 6px;
+    }
+    h1 {
+      margin: 0; font-size: clamp(2.2rem, 6vw, 3.6rem);
+      line-height: 1.02; font-weight: 700; letter-spacing: -0.01em;
+    }
+    .role {
+      margin: 14px 0 0; font-size: 1.1rem; color: #c8d2e3;
+    }
+    .header-actions { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+    .contact { list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+    .contact li { display: flex; align-items: center; gap: 10px; margin: 4px 0; color: #dfe5ef; }
+    .contact a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
+    .contact a:hover { color: var(--gold); border-color: var(--gold); }
+    .contact svg { width: 16px; height: 16px; flex: none; fill: var(--gold); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      font-weight: 700; text-decoration: none;
+      padding: 10px 18px; border-radius: 6px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { background: #d8b67f; color: var(--navy); transform: translateY(-1px); }
+    .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ---------- Layout ---------- */
+    main {
+      max-width: 1080px; margin: 0 auto; padding: 40px 28px 64px;
+      display: grid; grid-template-columns: 340px 1fr; gap: 28px;
+    }
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; }
+      main > aside { order: 2; }
+      .header-inner { padding: 40px 22px 40px; }
+    }
+    .card {
+      background: var(--card); border-radius: 10px;
+      padding: 26px 26px 22px; margin-bottom: 28px;
+      box-shadow: 0 1px 2px rgba(27,45,75,0.06), 0 4px 16px rgba(27,45,75,0.05);
+    }
+    .card:last-child { margin-bottom: 0; }
+    h2 {
+      margin: 0 0 18px; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy);
+      display: flex; align-items: center; gap: 12px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+    /* ---------- Timeline (experience + education) ---------- */
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline > li {
+      position: relative; padding: 0 0 22px 22px;
+      border-left: 2px solid var(--line);
+    }
+    .timeline > li:last-child { padding-bottom: 0; border-left-color: transparent; }
+    .timeline > li::before {
+      content: ""; position: absolute; left: -7px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--card); border: 2px solid var(--gold);
+    }
+    .timeline > li.current::before { background: var(--gold); }
+    .when { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.02em; }
+    .what { font-weight: 700; margin: 2px 0 0; font-size: 1.05rem; }
+    .where { color: var(--navy-2); font-size: 0.95rem; }
+    .sub { color: var(--muted); font-size: 0.9rem; }
+    .timeline ul { margin: 8px 0 0; padding-left: 18px; }
+    .timeline ul li { margin: 3px 0; }
+    .timeline ul ul { margin-top: 3px; }
+    .timeline ul ul li { color: var(--muted); }
+    .role-split { margin-top: 10px; }
+    .role-split .what { font-size: 0.97rem; font-weight: 500; }
+    .other-jobs { color: var(--muted); font-size: 0.93rem; margin-top: 6px; }
+
+    /* ---------- Skills ---------- */
+    .skill-group { margin-bottom: 16px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group h3 {
+      margin: 0 0 8px; font-size: 0.88rem; font-weight: 500; color: var(--muted);
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; margin: 0; padding: 0; }
+    .tags li {
+      background: var(--tag); color: var(--navy);
+      padding: 4px 11px; border-radius: 999px; font-size: 0.88rem;
+    }
+
+    /* ---------- Awards ---------- */
+    .awards { list-style: none; margin: 0; padding: 0; }
+    .awards li {
+      display: grid; grid-template-columns: 52px 1fr; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+    }
+    .awards li:first-child { padding-top: 0; }
+    .awards li:last-child { border-bottom: none; padding-bottom: 0; }
+    .year { font-weight: 700; color: var(--gold); }
+    .highlight {
+      background: linear-gradient(90deg, rgba(201,164,106,0.12), transparent);
+      border-left: 3px solid var(--gold);
+      padding: 10px 12px !important; border-radius: 4px; margin: 6px 0;
+      border-bottom: none !important;
+    }
+
+    .plain { list-style: none; margin: 0; padding: 0; }
+    .plain li { margin: 5px 0; }
+
+    footer {
+      text-align: center; color: var(--muted); font-size: 0.82rem;
+      padding: 0 20px 36px;
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      body { background: #fff; }
+      .btn { display: none; }
+      .card { box-shadow: none; padding: 0; margin-bottom: 18px; }
+      main { padding-top: 24px; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <p class="title-pre">Ing.</p>
+      <h1>Radek Doležel</h1>
+      <p class="role">Mechanical design / Project Engineer · PhD student in Robotics</p>
+    </div>
+    <div class="header-actions">
+      <ul class="contact">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 2.8-8 5-8-5V17h16V9.8z"/></svg>
+          <a href="mailto:dol.radek@seznam.cz">dol.radek@seznam.cz</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+          <a href="https://github.com/Raduas" target="_blank" rel="noopener">github.com/Raduas</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          Ostrava, Czech Republic
+        </li>
+      </ul>
+      <a class="btn" href="Dolezel_CV_EN.pdf" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6V3zM4 19h16v2H4v-2z"/></svg>
+        Download CV (PDF)
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== Sidebar ===== -->
+  <aside>
+    <section class="card">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li class="current">
+          <div class="when">Sep 2026 – present</div>
+          <div class="what">Doctoral studies (Ph.D.)</div>
+          <div class="where">Department of Robotics</div>
+          <div class="sub">VSB – Technical University of Ostrava, Faculty of Mechanical Engineering</div>
+        </li>
+        <li>
+          <div class="when">Sep 2021 – Jun 2023</div>
+          <div class="what">Master's degree (Ing.)</div>
+          <div class="where">Automotive and Transport Engineering</div>
+          <div class="sub">Brno University of Technology, Faculty of Mechanical Engineering</div>
+        </li>
+        <li>
+          <div class="when">Sep 2018 – Jun 2021</div>
+          <div class="what">Bachelor's degree (Bc.)</div>
+          <div class="where">Machine and Equipment Design</div>
+          <div class="sub">Brno University of Technology, Faculty of Mechanical Engineering</div>
+        </li>
+        <li>
+          <div class="when">Sep 2014 – Jun 2018</div>
+          <div class="what">High school (Maturita)</div>
+          <div class="where">Mechanical Engineering</div>
+          <div class="sub">VOŠ a SPŠ Šumperk</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Languages</h2>
+      <ul class="plain">
+        <li><strong>Czech</strong> – native</li>
+        <li><strong>English</strong> – B1, including technical English</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Interests</h2>
+      <ul class="plain">
+        <li>Embedded and power systems development</li>
+        <li>Programming</li>
+        <li>3D printing (FDM)</li>
+        <li>Disc golf, ice hockey, football</li>
+      </ul>
+    </section>
+  </aside>
+
+  <!-- ===== Main column ===== -->
+  <div>
+    <section class="card">
+      <h2>Work experience</h2>
+      <ul class="timeline">
+        <li class="current">
+          <div class="when">Sep 2023 – present</div>
+          <div class="what">Mechanical design / Project Engineer</div>
+          <div class="where">Škoda Transportation a.s.</div>
+          <ul>
+            <li>Design and project engineering work</li>
+            <li>Preparing technical specifications</li>
+            <li>Communication with suppliers</li>
+            <li>21Ev project homologation in Estonia
+              <ul><li>Coordinating tests to demonstrate compliance with EU requirements</li></ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="when">Jul 2021 – Aug 2022 · part-time</div>
+          <div class="what">CeramTec Czech Republic, s.r.o.</div>
+          <div class="role-split">
+            <div class="what">Design Engineer <span class="when">· Mar 2022 – Aug 2022</span></div>
+            <ul>
+              <li>Creating measurement reports</li>
+              <li>Designing jigs and fixtures</li>
+            </ul>
+          </div>
+          <div class="role-split">
+            <div class="what">Lean Specialist <span class="when">· Jul 2021 – Mar 2022</span></div>
+            <ul>
+              <li>Implementing the 5S methodology</li>
+              <li>Designing a TPM system</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Part-time</div>
+          <div class="what">Other part-time jobs</div>
+          <div class="other-jobs">Hella Autotechnik Nova, s.r.o.</div>
+	  <div class="other-jobs">OP papírna s.r.o.</div>
+	  <div class="other-jobs">FWP Matthews Ltd</div>
+	  <div class="other-jobs">Bohutín Municipal Office</div>
+
+
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Awards &amp; certificates</h2>
+      <ul class="awards">
+        <li class="highlight">
+          <span class="year">2023</span>
+          <span><strong>Industry Award</strong> for the master's thesis <em>“Computational Model of an Autonomous Vehicle's Surroundings”</em>, one of the 18 best of 497 FME theses.
+            <a href="https://www.fme.vutbr.cz/fakulta/zfsi/72133" target="_blank" rel="noopener">Details</a></span>
+        </li>
+        <li>
+          <span class="year">2023</span>
+          <span>Certificate in <strong>CATIA V5</strong></span>
+        </li>
+        <li>
+          <span class="year">2022</span>
+          <span>Schaeffler professional course <em>“Transmission Components”</em></span>
+        </li>
+        <li>
+          <span class="year"></span>
+          <span>Certificate in <strong>Autodesk Inventor</strong> and <strong>Autodesk AutoCAD</strong></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Skills</h2>
+      <div class="skill-group">
+        <h3>CAD / CAM / PLM</h3>
+        <ul class="tags">
+          <li>Autodesk Inventor</li><li>Autodesk AutoCAD</li><li>Inventor CAM</li>
+          <li>SolidWorks</li><li>CATIA V5</li><li>PLM SmT</li><li>Creo</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Simulation &amp; analysis</h3>
+        <ul class="tags">
+          <li>Ansys Mechanical</li><li>Ansys CFX</li><li>MATLAB</li><li>Simulink</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Embedded &amp; automation</h3>
+        <ul class="tags">
+          <li>Embedded C++</li><li>STM32CubeIDE</li><li>KiCad</li><li>TwinCAT</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Software development</h3>
+        <ul class="tags">
+          <li>Python</li><li>FastAPI</li><li>PHP</li><li>PostgreSQL</li><li>Docker</li>
+          <li>JavaScript</li><li>HTML / CSS</li><li>Git</li><li>VS Code</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Documentation</h3>
+        <ul class="tags">
+          <li>Technical standards</li><li>MS Word</li><li>MS Excel</li><li>MS PowerPoint</li><li>MS Visio</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>© <span id="y">2026</span> Radek Doležel</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
